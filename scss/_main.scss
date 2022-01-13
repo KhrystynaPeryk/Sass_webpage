@@ -1,0 +1,206 @@
+@mixin button-style {
+    color: $footerColor;
+    background-color: $buttonBackgroundColor;
+    padding: 10px 40px;
+    border: none;
+    font-weight: map-get($font-weights, 'bold');
+}
+
+@mixin link-style {
+    color: $footerColor;
+}
+
+body {
+    background: $contentBackgroundColor;
+    font-family: $font-stack;
+    margin: 0;
+    color: $bodyTextColor;
+    header {
+        background: $headerPic;
+        border-radius: 0 0 35% 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 100px;
+        .landing-logo {
+            display: $displayFlex;
+            @extend %logosize;
+        }
+        .header_heading {
+            font-size: 60px;
+            font-weight: map-get($font-weights, 'bolder');
+            width: 600px;
+            line-height: 60px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        .header_heading:after {
+            content: 'awesome';
+            font-weight: map-get($font-weights, 'bolder');
+            font-size: 60px;
+            position: absolute;
+            left: 100px;
+            background-color: $colorHighlight;
+        }
+        .header_text {
+            font-size: x-small;
+            font-weight: map-get($font-weights, 'regular');
+            font-family: $font-fortext;
+            width: 595px;
+            line-height: 25px;
+            padding-bottom: 40px;
+            white-space: pre-line;
+            margin-top: 0;
+        }
+        div {
+            margin-bottom: 50px;
+            .header_button {
+                @include button-style;
+                margin-right: 130px;
+            }
+            .login {
+                @include link-style;
+            }
+        }
+    }
+    main {
+        position: relative;
+        .section_text {
+            text-align: end;
+            font-weight: map-get($font-weights, 'bold');
+            font-size: 35px;
+            width: 65%;
+            display: inline-block;
+        }
+        .section_text:after {
+            content: 'adventure';
+            position: absolute;
+            right: 35.7%;
+            font-weight: map-get($font-weights, 'bold');
+            font-size: 35px;
+            background-color: $colorHighlight;
+        }
+        .section_card_wrap {
+            margin: 0 auto;
+            width: 960px;
+            .section_card {
+                height: 250px;
+                display: $displayFlex;
+                background-color: $footerBackgroundColor;
+                color: $footerColor;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                padding: 20px;
+                .section_card_img {
+                    width: 370px;
+                    height: 250px;
+                    border-radius: 5px;
+                }
+                .section_card_right_container {
+                    text-align: center;
+                    padding: 50px;
+                    padding-top: 30px;
+                    padding-right: 80px;
+                    .section_card_heading {
+                        margin-top: 10px;
+                        margin-bottom: 30px;
+                    }
+                    .section_card_text {
+                        font-family: $font-fortext;
+                        font-size: x-small;
+                        text-align: justify;
+                        line-height: 25px;
+                    }
+                    .section_link {
+                        @include link-style;
+                        font-size: x-small;
+                    }
+                }
+            }
+        }
+        .section_banner {
+            padding-left: 130px;
+            background-image: $gradient-forlight;
+            width: 925px;
+            height: 125px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: -15%;
+            left: 50%;
+            transform: translate(-50%);
+            .section_banner_text_wrap {
+                margin-right: 35%;
+                display: inline-block;
+                .section_banner_heading {
+                    font-weight: map-get($font-weights, 'bolder');
+                    font-size: 28px;
+                    margin-bottom: 15px;
+                }
+                .section_banner_heading:after {
+                    content: 'start';
+                    font-weight: map-get($font-weights, 'bolder');
+                    font-size: 28px;
+                    position: absolute;
+                    left: 245px;
+                    background-color: $colorHighlight;
+                }
+                .section_banner_text {
+                    font-size: x-small;
+                    color: $footerColor;
+                    margin: 0;
+                    padding-bottom: 50px;
+                }
+            }
+            .section_banner_button {
+                @include button-style;
+                position: absolute;
+                right: 130px;
+                bottom: 40px;
+            }
+        }
+    }
+    footer {
+        background-color: $footerBackgroundColor;
+        color: $footerColor;
+        margin-top: 90px;
+        .footer-wrap {
+            display: $displayFlex;
+            height: 180px;
+            justify-content: space-around;
+            align-items: flex-end;
+            padding-bottom: 30px;
+            .footer_logo.landing-logo {
+                display: $displayFlex;
+                @extend %logosize;
+                margin-bottom: 15px;
+            }
+            .footer_text {
+                font-size: 13px;
+                width: 270px;
+            }
+            .footer-cr {
+                font-size: x-small;
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
+
+%logosize {
+    img {
+        width: 40px;
+        height: 40px;
+    }
+    p {
+        display: $displayFlex;
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 10px;
+        font-weight: map-get($font-weights, 'bold');
+        span {
+            font-weight: map-get($font-weights, 'regular');
+            font-size: 10px;
+            text-align: center;
+        }
+    }
+}
